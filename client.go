@@ -1,4 +1,3 @@
-
 package main
 
 import (
@@ -10,9 +9,18 @@ import (
 	"flag"
 	"time"
 	"encoding/json"
-	"github.com/moskovchenkonastya/Messenger/blob/master"
+	"bytes"
 )
 
+type tParamsLoginStruct struct {
+	name     string
+	password string
+}
+
+type CommandData struct{
+
+	method string
+}
 
 func main(){
 
@@ -79,17 +87,37 @@ func handleConnection (conn net.Conn) {
 	}
 }
 
-func login() {
-	fmt.Println("login")
-	var data test.Schema
-	if err := readJson(&data); err != nil {
-		log.Fatalf("can't read json data: %s", err)
+func ParseJsonIntoStruct(c []byte, v interface{}) error {
+
+	c = bytes.Trim(c, "")
+
+	err := json.Unmarshal(c, v)
+	if err != nil {
+		return fmt.Errorf("Can't parse json (parseJsonIntoStruct): %s", err)
+
 	}
 
-	dataToPrint, _ := json.MarshalIndent(data, "", "  ")
-	fmt.Printf("%s", dataToPrint)
+	return err
+}
+
+
+func login() {
+
+	fmt.Println("login")
+
+	
+
+	var params = &tParamsLoginStruct{}
+	err := ParseJsonIntoStruct(CommandData.method, params)
+
+	userName := params.name
+	userPassword := params.password
+
 
 }
+
+
+
 
 func  register(){
 	fmt.Println("register")
