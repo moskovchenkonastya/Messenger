@@ -17,7 +17,16 @@
  # Реализация: 
  ![Модель](https://github.com/moskovchenkonastya/Messenger/blob/master/Screen%20Shot%202017-09-06%20at%2014.48.42.png)
  
+ 
  # Скриншоты приложения
+ Login:
+ 
  ![View Login](https://github.com/moskovchenkonastya/Messenger/blob/master/Screen%20Shot%202017-09-06%20at%2014.48.55.png)
+ 
+ Main:
+ 
  ![View main](https://github.com/moskovchenkonastya/Messenger/blob/master/Screen%20Shot%202017-09-06%20at%2014.49.03.png)
+ 
+ Profile:
+ 
  ![View profile](https://github.com/moskovchenkonastya/Messenger/blob/master/Screen%20Shot%202017-09-06%20at%2014.49.11.png)
